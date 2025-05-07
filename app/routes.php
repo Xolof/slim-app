@@ -20,6 +20,11 @@ return function (App $app) {
         return $response;
     });
 
+    $app->get('/about', function (Request $request, Response $response) {
+        $response->getBody()->write('<h1>About</h1><p>This is a simple Slim 4 application.</p>');
+        return $response;
+    });
+    
     $app->group('/users', function (Group $group) {
         $group->get('', ListUsersAction::class);
         $group->get('/{id}', ViewUserAction::class);
